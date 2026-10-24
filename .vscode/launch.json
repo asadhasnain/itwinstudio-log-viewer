@@ -1,0 +1,122 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "Debug in Studio",
+      "configurations": [
+        "Launch Studio",
+        "Attach to Frontend",
+        "Attach to Backend"
+      ],
+      "stopAll": true,
+      "preLaunchTask": "npm: dev"
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Launch Studio",
+      "request": "launch",
+      "runtimeExecutable": "iTwinStudio",
+      "outputCapture": "std",
+      "killBehavior": "polite",
+      "cascadeTerminateToConfigurations": [
+        "Attach to Frontend",
+        "Attach to Backend"
+      ],
+      "type": "node",
+      "osx": {
+        "runtimeExecutable": "/Applications/iTwinStudio.app/Contents/MacOS/iTwinStudio"
+      },
+      "args": [
+        "${workspaceFolder}/app.config.json",
+        "--remote-debugging-port=9222",
+        "-v",
+        "--useMode=dev"
+      ],
+      "env": {
+        "STUDIO_UTILITY_EXTRA_CLI_ARGS": "--inspect-brk=9232"
+      },
+      "presentation": {
+        "hidden": true
+      }
+    },
+    {
+      "name": "Attach to Backend",
+      "type": "node",
+      "request": "attach",
+      "port": 9232,
+      "continueOnAttach": true,
+      "restart": true,
+      "presentation": {
+        "hidden": true
+      },
+      "windows": {
+        "resolveSourceMapLocations": [
+          "${workspaceFolder}/dist/**/*.js",
+          "https://*autoupdatecdn.bentley.com/itwindesktopplatform/standard*/**"
+        ],
+        "outFiles": [
+          "${workspaceFolder}/dist/**/*.js",
+          "${env:LocalAppData}/Programs/Bentley/iTwinStudio/v1*/resources/app.asar/backend-bundle/**/*.js"
+        ]
+      },
+      "linux": {
+        "resolveSourceMapLocations": [
+          "${workspaceFolder}/dist/**/*.js",
+          "https://*autoupdatecdn.bentley.com/itwindesktopplatform/standard*/**"
+        ],
+        "outFiles": [
+          "${workspaceFolder}/dist/**/*.js",
+          "/opt/iTwinStudio*/resources/app.asar/backend-bundle/**/*.js"
+        ]
+      },
+      "osx": {
+        "resolveSourceMapLocations": [
+          "${workspaceFolder}/dist/**/*.js",
+          "https://*autoupdatecdn.bentley.com/itwindesktopplatform/standard*/**"
+        ],
+        "outFiles": [
+          "${workspaceFolder}/dist/**/*.js",
+          "/Applications/iTwinStudio.app/Contents/Resources/app.asar/backend-bundle/**/*.js"
+        ]
+      }
+    },
+    {
+      "type": "chrome",
+      "request": "attach",
+      "name": "Attach to Frontend",
+      "port": 9222,
+      "restart": true,
+      "presentation": {
+        "hidden": true
+      },
+      "resolveSourceMapLocations": [
+        "https://*autoupdatecdn.bentley.com/itwindesktopplatform/standard*/**",
+        "${workspaceFolder}/dist/**/*.js"
+      ],
+      "windows": {
+        "outFiles": [
+          "${workspaceFolder}/dist/**/*.js",
+          "${env:LocalAppData}/Programs/Bentley/iTwinStudio/v1*/resources/app.asar/dist/**/*.js",
+        ]
+      },
+      "linux": {
+        "outFiles": [
+          "${workspaceFolder}/dist/**/*.js",
+          "/opt/iTwinStudio*/resources/app.asar/dist/**/*.js",
+          "https://*autoupdatecdn.bentley.com/itwindesktopplatform/standard*/**"
+        ]
+      },
+      "osx": {
+        "outFiles": [
+          "${workspaceFolder}/dist/**/*.js",
+          "/Applications/iTwinStudio.app/Contents/Resources/app.asar/dist/**/*.js",
+          "https://*autoupdatecdn.bentley.com/itwindesktopplatform/standard*/**"
+        ]
+      }
+    }
+  ]
+}

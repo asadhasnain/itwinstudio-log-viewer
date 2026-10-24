@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "process",
+      "command": "npm",
+      "args": ["run", "dev"],
+      "label": "npm: dev",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "(.*?):([0-9]+):([0-9]+):(.+)$",
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Compiling .*",
+          "endsPattern": "Compiled .*|Rebuilt .*"
+        }
+      }
+    },
+    {
+      "label": "Terminate All Tasks",
+      "command": "echo ${input:terminate}",
+      "type": "shell",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "terminate",
+      "type": "command",
+      "command": "workbench.action.tasks.terminate",
+      "args": "terminateAll"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# build
+dist
+
+# node
+node_modules
+
+# temporary folders
+.watch

@@ -1,0 +1,73 @@
+{
+  "name": "its-log-viewer-app",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Basic Startup App (minimal starter)",
+  "keywords": [
+    "itwin"
+  ],
+  "author": {
+    "name": "Bentley Systems, Inc.",
+    "url": "https://www.bentley.com"
+  },
+  "main": "dist/backend-bundle.js",
+  "scripts": {
+    "start": "iTwinStudio .",
+    "build": "studio-cli apps build --backendEntry backend/index.ts --frontendEntry frontend/index.tsx",
+    "dev": "studio-cli apps build --watch --backendEntry backend/index.ts --frontendEntry frontend/index.tsx",
+    "publish-app": "studio-cli apps publish its-log-viewer-app",
+    "clean": "rimraf dist",
+    "package": "studio-cli apps package",
+    "package-dev": "studio-cli apps package --dev",
+    "test": "jest",
+    "test-e2e": "playwright test e2e",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@bentley/studio-apps-backend-api": "^1.14.2",
+    "@bentley/studio-apps-frontend-api": "^1.14.2",
+    "@bentley/studio-startup-apps-backend-api": "^1.14.2",
+    "@bentley/studio-startup-apps-frontend-api": "^1.14.2",
+    "@itwin/appui-abstract": "5.14.3",
+    "@itwin/appui-react": "5.35.1",
+    "@itwin/components-react": "5.35.1",
+    "@itwin/core-backend": "5.14.3",
+    "@itwin/core-bentley": "5.14.3",
+    "@itwin/core-common": "5.14.3",
+    "@itwin/core-frontend": "5.14.3",
+    "@itwin/core-geometry": "5.14.3",
+    "@itwin/core-orbitgt": "5.14.3",
+    "@itwin/core-quantity": "5.14.3",
+    "@itwin/core-react": "5.35.1",
+    "adm-zip": "^0.6.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@bentley/studio-apps-testing": "^1.14.2",
+    "@bentley/studio-cli": "^1.14.2",
+    "@itwin/build-tools": "5.14.3",
+    "@itwin/eslint-plugin": "6.1.1",
+    "@jest/globals": "^30.0.0",
+    "@playwright/test": "~1.60.0",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@types/adm-zip": "^0.6.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^18.3.11",
+    "@types/testing-library__jest-dom": "^5.14.9",
+    "cpx2": "^4.2.3",
+    "dotenv": "16.4.5",
+    "esbuild": "0.25.10",
+    "eslint": "^9.36.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.0.0",
+    "jest-environment-jsdom": "^30.0.0",
+    "playwright-core": "~1.60.0",
+    "rimraf": "4.4.1",
+    "ts-jest": "^29.2.3",
+    "typescript": "^6.0.3"
+  },
+  "studioApp": {}
+}

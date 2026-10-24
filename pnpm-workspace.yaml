@@ -1,0 +1,16 @@
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - '@itwin/*'
+  - '@bentley/*'
+  - '@stratakit/*'
+  - form-data
+overrides:
+  '@playwright/test': ~1.60.0
+allowBuilds:
+  '@bentley/imodeljs-native': true
+  '@bentley/licensing-native': true
+  '@itwin/oidc-signin-tool': true
+  esbuild: true
+  '@itwin/certa': false
+  '@parcel/watcher': false
+  unrs-resolver: false

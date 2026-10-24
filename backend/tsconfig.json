@@ -1,0 +1,18 @@
+{
+  "extends": "@itwin/build-tools/tsconfig-base.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "declaration": false,
+    "declarationMap": false,
+    "noUnusedParameters": false,
+    "types": ["jest", "node"],
+    "module": "commonjs",
+    // As of @itwin/build-tools 5.12.5, its tsconfig-base sets moduleResolution "node" (node10),
+    // which TS 6 rejects (TS5107). Remove this override once it ships a TS 6+ compatible base.
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "resolveJsonModule": true
+  },
+  "include": ["./**/*.ts"]
+}

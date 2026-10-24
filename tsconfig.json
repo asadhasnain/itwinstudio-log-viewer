@@ -1,0 +1,11 @@
+{
+  "extends": "@itwin/build-tools/tsconfig-base.json",
+  "compilerOptions": {
+    // As of @itwin/build-tools 5.12.5, its tsconfig-base sets moduleResolution "node" (node10),
+    // which TS 6 rejects (TS5107). Remove this override once it ships a TS 6+ compatible base.
+    "moduleResolution": "bundler",
+    "esModuleInterop": true
+  },
+  "files": [],
+  "references": [{ "path": "./backend" }, { "path": "./frontend" }, { "path": "./common" }, { "path": "./e2e" }]
+}

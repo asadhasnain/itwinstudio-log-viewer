@@ -1,0 +1,16 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["/package.json"],
+      "url": "./node_modules/@bentley/studio-cli/schemas/app-manifest-schema.json"
+    },
+    {
+      "fileMatch": ["*.config.json", "!studio.config.json"],
+      "url": "./node_modules/@bentley/studio-cli/schemas/app-config-schema.json"
+    },
+    {
+      "fileMatch": ["studio.config.json"],
+      "url": "./node_modules/@bentley/studio-cli/schemas/studio-config-schema.json"
+    }
+  ]
+}
